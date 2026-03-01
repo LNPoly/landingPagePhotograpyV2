@@ -1,7 +1,7 @@
 /* IMPORTS */
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
-@import url('about.css');
 @import url('hero.css');
+@import url('about.css');
 @import url('works.css');
 @import url('services.css');
 @import url('contact.css');
@@ -59,10 +59,28 @@ body, html{
     overflow-x: hidden;
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'EB Garamond', serif;
+    overflow-x: hidden;
+    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Altura estándar */
+    min-height: 100dvh; 
+    margin: 0;
+}
+
 main{
     position: absolute;
     width: 100%;
     display: flex;
+    flex: 1 0 auto;
     justify-content: center;
     align-items: center;
 }
@@ -286,9 +304,10 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.557); /* Negro sólido absoluto */
+    background-color: rgba(0, 0, 0, 0.557);
     padding: 0 20px;
-    z-index: 1100; /* Por debajo del menú hamburguesa pero por encima de las secciones */
+    flex-shrink: 0;
+    z-index: 1100;
 }
 
 footer p {

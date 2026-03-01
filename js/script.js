@@ -15,13 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.getElementById('nav-menu');
     const allLinks = document.querySelectorAll('.menu-link, .logo');
 
-    // 1. Abrir/Cerrar menú hamburguesa
+    // Abrir/Cerrar menú hamburguesa
     menuToggle.addEventListener('click', () => {
         menuToggle.classList.toggle('is-active');
         navMenu.classList.toggle('active');
     });
 
-    // 2. Al hacer click en cualquier link (Desktop o Móvil)
+    // Al hacer click en cualquier link (Desktop o Móvil)
     allLinks.forEach(link => {
         link.addEventListener('click', () => {
             
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-            // Llamamos a tu función de reset que creamos antes
+            // Llamamos a función de reset
             if (typeof resetSectionsState === "function") {
                 resetSectionsState();
             }
@@ -84,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Estado Inicial: Forzamos el Hero
     switchSection('.hero');
 });
 
