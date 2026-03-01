@@ -4,11 +4,13 @@
 /* --- WORKS SECTION --- */
 
 .works{
-    height: calc(100vh - 140px);
+    min-height: 100vh;
+    height: auto !important;
     width: 95vw;
     position: relative;
     border-radius: 15px;
     transition: all 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+    overflow: visible !important;
 }
 .sub-nav {
     display: flex;

@@ -12,11 +12,11 @@
     }
 
     header {
+        position: sticky !important;
         background-color: black !important;
         padding: 10px 20px;
         justify-content: space-between;
         align-items: center;
-        position: sticky !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
     }
@@ -144,14 +144,16 @@
         gap: 30px; 
         padding: 10px 5px;
         width: 100%;
-        height: 90dvh;
+        height: 100dvh;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
- 
 
     }
 
     .works.era-selected .sub-nav{
+        position: sticky;
+        top: 0;
+        background: var(--bg-color);
         border-bottom: transparent;
         flex-direction: row;
         margin-top: 0;
@@ -175,7 +177,8 @@
     .works-section {
         height: 80dvh;
         padding: 10px;
-        overflow-x: visible !important;
+        overflow-y: visible !important; 
+        overflow-x: hidden !important; 
     }
 
     .works-grid {
