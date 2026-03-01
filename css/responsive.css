@@ -1,4 +1,4 @@
-
+@import url('modal.css');
 @media screen and (max-width: 768px) {
     
     .custom-cursor { display: none; }
@@ -12,10 +12,11 @@
     }
 
     header {
+        background-color: black !important;
         padding: 10px 20px;
         justify-content: space-between;
         align-items: center;
-        position: sticky;
+        position: sticky !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
     }
@@ -129,11 +130,9 @@
         display: block;
         top: 40px;
         padding: 10px;
-        width: 100%;
-        margin: 0 auto;
-        height: auto; 
-        overflow-x: auto !important; 
-        overflow-y: hidden !important;
+        width: 100dvh;
+        height: auto !important; 
+        overflow: visible;
     }
 
     .sub-nav {
@@ -143,9 +142,9 @@
         align-items: center;
         flex-wrap: nowrap;
         gap: 30px; 
-        margin-top: 25%;
         padding: 10px 5px;
         width: 100%;
+        height: 90dvh;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
  
@@ -156,6 +155,7 @@
         border-bottom: transparent;
         flex-direction: row;
         margin-top: 0;
+        height: auto;
     }
 
     .sub-nav a{
@@ -173,24 +173,29 @@
     }
 
     .works-section {
-        padding: 10px 15px;
-        scroll-snap-type: x mandatory;
+        height: 80dvh;
+        padding: 10px;
+        overflow-x: visible !important;
     }
 
     .works-grid {
+        /* height: 70dvh; */
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 15px; 
-        height: 90%;
+        padding: 0;
     }
 
     .work-item {
-        flex: 0 0 85vw; 
-        max-width: 300px; 
-        padding: o;
+        flex: none; 
+        width: 100%;
+        max-width: 100%; 
+        margin: 0 auto;
         scroll-snap-align: center;
     }
 
     .work-item img {
-        height: 250px;
+        height: 25dvh;
         object-fit: cover;
         border-radius: 8px;
     }
@@ -269,6 +274,37 @@
         padding: 10px;
     }
 
+    /*MODAL*/
+
+    .modal {
+        display: flex; 
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center; 
+        padding: 20px; 
+    }
+    .modal-content{
+        max-width: 95%; 
+        max-height: 60dvh;
+        margin-top: 50px; 
+        margin-bottom: 20px;
+        object-fit: contain;
+                
+    }
+
+    #caption {
+        width: 100%;
+        max-width: 100%; 
+        text-align: center; 
+        color: #ccc; 
+        font-size: 1rem; 
+        padding: 10px 0; 
+        position: relative; 
+        order: 2;
+    }
+
+    /*FOOTER*/
+
     footer {
         bottom: 0;
         padding: 5px 0;
@@ -339,7 +375,7 @@
         
     }
     .grid-item{
-        height: 65% !important;
+        height: 65dvh !important;
     }
 
     .grid-item h4{
@@ -348,7 +384,7 @@
     }
 
     .grid-item .grid-sub-item{
-        height: 30% !important;
+        height: 30dvh !important;
     }
     .grid-sub-item p{
         display: none;
@@ -399,6 +435,8 @@
         bottom: 80px;
         right: 20px;
     }
+
+    
 
     /*footer*/
 
