@@ -1,24 +1,27 @@
 /*SOBRE MI*/
 
 .about{
+    min-height: 80vh;
     width: 100%;
-    padding: 40px 20px;
+    padding: 100px 20px 40px; 
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
 }
 .about-content {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: 30px;
-    width: 80%;
+    width: 90%;
+    max-width: 1200px;
 }
 .about-content h2{
     font-size: 2.5rem;
     text-align: center;
     color: var(--petrol-light);
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     border-bottom: 1px solid var(--petrol-light);
 }
 .about-content .about-portrait {
@@ -34,9 +37,9 @@
 }
 
 .about .about-text{
-    max-width: 95%;
     text-align: justify;
-    line-height: 1.5;
     font-size: 1.5rem;
+    max-width: 90%;
     margin: 0 auto;
+    line-height: 1.6; /* Mejora la lectura en móviles */
 }
