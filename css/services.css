@@ -98,3 +98,6 @@
     font-size: 1.1rem;
     color: #ffffff;
 }
+.services .btn{
+    display: none;
+}
