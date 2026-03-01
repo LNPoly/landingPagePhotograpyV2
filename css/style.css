@@ -1,0 +1,301 @@
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+@import url('about.css');
+@import url('hero.css');
+@import url('works.css');
+@import url('services.css');
+@import url('contact.css');
+@import url('animations.css');
+@import url('responsive.css');
+@import url('modal.css');
+/* --- RESET & BASE --- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --bg-color: #000000;
+    --text-main: #ffffff;
+    
+    /* paleta de colores*/
+    --petrol-dark: #002d38;
+    --petrol-medium: #084d6e;
+    --petrol-primary: #216477; /*azul petroleo*/
+    --petrol-light: #0a9396;
+    --petrol-glow: #94d2bd;
+    
+    /* sombra */
+    --shadows-color: rgba(10, 147, 150, 0.3);
+    
+    /*degradado*/
+    --blue-gradient: linear-gradient(45deg, 
+        var(--petrol-dark), 
+        var(--petrol-primary), 
+        var(--petrol-light), 
+        var(--petrol-medium), 
+        var(--petrol-dark)
+    );
+    
+    /*degradado de scaneo*/
+    --scan-gradient: linear-gradient(90deg, 
+        transparent 0%, 
+        transparent 40%, 
+        rgba(255,255,255,0.6) 50%, 
+        var(--petrol-light) 55%, 
+        transparent 60%, 
+        transparent 100%
+    );
+
+}
+
+/*CONFIGURACIONES GENERALES*/
+
+body, html{
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'EB Garamond', serif;
+    overflow-x: hidden;
+}
+
+main{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Estado inicial: Totalmente nulo */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0.95);
+    transition: all 0.5s ease-in-out;
+    z-index: 1;
+}
+
+section.section-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transform: scale(1);
+    z-index: 10;
+}
+
+/* --- EL CURSOR PERSONALIZADO (Solo para pantallas grandes) --- */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--petrol-light);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease-out;
+    background: rgba(10, 147, 150, 0.15);
+}
+
+/*--ESTILOS DE HEADER --*/
+
+/* --- UTILITIES HEADER --- */
+
+.accent-hover {
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    padding-left: 15px;
+    transition: all 0.5s ease;
+    display: inline-block; 
+}
+
+.accent-hover:hover {
+
+    background: var(--blue-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1.05);
+    font-weight: bold;
+    text-shadow: 2px 2px 5px var(--petrol-glow);
+    border-left: 2px solid var(--petrol-glow);
+}
+
+/* --- Estado del header(Móvil) --- */
+.accent-hover:active {
+    background: var(--blue-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(0.9); 
+    transition: transform 0.1s;
+}
+
+/* --- Clase para la opción que queda seleccionada --- */
+.nav-active {
+    background: var(--blue-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+/* Menú Hamburguesa (movil)*/
+
+.menu-toggle {
+    display: none; /* Se oculta en pantallas grandes */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 5000;
+}
+
+.menu-toggle .bar {
+    width: 30px;
+    height: 3px;
+    background-color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
+/*HEADER NORMAL */
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    width: 100%;
+    position: absolute;
+    /* background: #0505055c;  */
+    z-index: 3000;
+}
+
+header .logo{
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-main);
+
+}
+
+.logo .logo-link{
+    text-decoration: none;
+    color: var(--text-main);
+}
+    
+nav div a {
+    color: var(--petrol-primary);
+    margin: 0 20px;
+    font-size: 1.5rem;
+}
+
+.menu-link {
+    color: var(--text-main);
+    text-shadow: 0px 0px 2px var(--text-main);
+    transition: filter 0.5s ease, opacity 0.5s ease, transform 0.3s ease;
+    display: inline-block;
+    filter: blur(0);
+    opacity: 1;
+}
+
+/* ESTADO ACTIVO: El que acabas de clickear */
+.menu-link.is-active {
+    filter: blur(0) !important; 
+    opacity: 1 !important;
+    background: var(--blue-gradient); 
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
+/* ESTADO DIFUSO */
+.menu-link.is-blurred {
+    filter: blur(2px); 
+    opacity: 0.4;      
+    pointer-events: none; 
+}
+
+/* --- ESTILO DE BOTONES --- */
+.button{
+    display: inline-block;
+}
+
+.btn{ /*texto del boton */
+    background-color: var(--petrol-dark);
+    color: var(--text-main);
+    border-radius: 6px; 
+    padding: 12px 30px;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid var(--petrol-primary);
+}
+.btn:hover{ /*efecto*/
+    background-color: var(--petrol-primary);
+    border-color: var(--petrol-light);
+    box-shadow: 0 0 20px var(--shadows-color);
+    transform: translateY(-2px);
+    font-weight: bold;
+    color: white;
+}
+
+.btn-return-home{
+    margin-bottom: 30px;
+}
+
+/*OCULTAR SECCIONES*/
+.about, .works,.contact {
+    position: fixed; 
+    top: 40px;      
+    left: 0;
+    width: 100%;
+    /* height: calc(100vh - 140px); */
+    background: var(--bg-color);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 50;
+    overflow-y: auto;
+}
+
+/*seccion activa*/
+.section-active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) scale(1);
+}
+
+/*FOOTER*/
+footer {
+    position: absolute;
+    height: 30px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.557); /* Negro sólido absoluto */
+    padding: 0 20px;
+    z-index: 1100; /* Por debajo del menú hamburguesa pero por encima de las secciones */
+}
+
+footer p {
+    color: var(--text-main);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-align: center;
+    opacity: 0.7;
+    margin: 0;
+}

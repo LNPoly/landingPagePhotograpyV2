@@ -1,0 +1,409 @@
+
+@media screen and (max-width: 768px) {
+    
+    .custom-cursor { display: none; }
+
+    /* Hamburguesa */
+    
+    .menu-toggle {
+        display: flex !important; /* Aparece en móvil */
+        position: relative;
+        z-index: 6000; /* Por encima de todo */
+    }
+
+    header {
+        padding: 10px 20px;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    /* El Menú Lateral (Overlay) */
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 20, 25, 0.98);
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1500;
+    }
+
+    nav.active {
+        right: 0;
+    }
+
+    /* Contenedor de links en móvil */
+    nav div {
+        pointer-events: all !important;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    /*Efecto Cascada (Staggered Animation) */
+    nav .menu-link {
+        pointer-events: all !important;
+        font-size: 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+    }
+
+    nav.active .menu-link {
+        transform: translateY(0);
+        filter: none !important;
+        opacity: 1 !important;
+        text-shadow: none !important;
+    }
+
+    .menu-link, 
+    .menu-link.is-blurred, 
+    .menu-link.is-active {
+        filter: none !important;    
+        opacity: 1 !important;      
+        transform: none !important; 
+        text-shadow: none;          
+    }
+
+    /*Tiempos de cascada */
+    nav.active .menu-link:nth-child(1) { transition-delay: 0.1s; }
+    nav.active .menu-link:nth-child(2) { transition-delay: 0.2s; }
+    nav.active .menu-link:nth-child(3) { transition-delay: 0.3s; }
+    nav.active .menu-link:nth-child(4) { transition-delay: 0.4s; }
+
+    /* Feedback de Click */
+    .menu-link.clicked {
+        background: var(--blue-gradient) !important;
+        color: black !important;
+        -webkit-text-fill-color: black !important;
+        padding: 5px 20px;
+        border-radius: 5px;
+    }
+
+    /*Animación de Hamburguesa a X */
+    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /*Reajustes de Secciones para Móvil */
+    section {
+        padding: 100px 20px 80px 20px;
+        justify-content: flex-start; 
+        overflow-y: auto;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    /*SECCION ABOUT*/
+    .about{
+        top: 20;
+    }
+    .about-content .about-portrait{
+        width: 220px;
+        height: 220px;
+        margin: auto 0;
+        border-radius: 10%; 
+        border: 2px solid var(--petrol-glow);
+        object-fit: cover;
+    }
+    .about-content h2{
+        font-size: 2rem;
+    }
+    .about .about-text{
+        font-size: 1.3rem;
+        text-align: justify;
+    }
+
+    /*SECCION WORKS*/
+    .works {
+        display: block;
+        top: 40px;
+        padding: 10px;
+        width: 100%;
+        margin: 0 auto;
+        height: auto; 
+        overflow-x: auto !important; 
+        overflow-y: hidden !important;
+    }
+
+    .sub-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 30px; 
+        margin-top: 25%;
+        padding: 10px 5px;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+ 
+
+    }
+
+    .works.era-selected .sub-nav{
+        border-bottom: transparent;
+        flex-direction: row;
+        margin-top: 0;
+    }
+
+    .sub-nav a{
+        padding: 8px 15px;
+        margin: 0 5px;
+        font-size: 1.5rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .sub-menu-link {
+        font-size: 0.9rem; 
+        white-space: nowrap; 
+        padding: 5px 10px;
+    }
+
+    .works-section {
+        padding: 10px 15px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .works-grid {
+        gap: 15px; 
+        height: 90%;
+    }
+
+    .work-item {
+        flex: 0 0 85vw; 
+        max-width: 300px; 
+        padding: o;
+        scroll-snap-align: center;
+    }
+
+    .work-item img {
+        height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+    .work-item h4 {
+        font-size: 1.1rem;
+        margin-top: 10px;
+    }
+
+    .work-item p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        padding: 10px;
+    }
+    
+    /*SERVICIOS*/
+
+    .services{
+        top: 60px;
+        left: 40px;
+        bottom: 0;
+        padding: 0;
+        width: 90%;
+        height: calc(100vh - 140px);
+        margin: 0 auto;
+    }
+    .services .grid-container{
+        position: absolute;
+        top: 0px;
+        width: 90%;
+        height: 90%;
+        justify-content: center;
+        
+    }
+    .grid-container .grid-item{
+        width: 95%;
+        height: 130%;
+        padding: 0;
+        margin: 0 auto;
+
+    }
+    .grid-container .grid-item h4{
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .grid-container .grid-item .grid-sub-item{
+        width: 80%;
+        height: 32%;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .grid-sub-item p{
+        display: none;
+    }
+
+    .grid-sub-item .importes{
+        display: block;
+        margin: 0;
+    }
+
+    /*SECCION CONTACTO*/
+    .contact {
+        width: 90vw;
+        padding: 0;
+    }
+
+    .contact form .inputs{
+        flex-direction: column;
+    }
+
+    textarea{
+        height: 100px;
+        padding: 10px;
+    }
+
+    footer {
+        bottom: 0;
+        padding: 5px 0;
+    }
+    
+    footer p {
+        font-size: 0.7rem;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .about-content .about-portrait {
+        display: none;
+    }
+    .about-content h2{
+        font-size: 1.5rem;
+    }
+    .about .about-text{
+        font-size: 1rem;
+        text-align: justify;
+    }
+
+    /*menu works*/
+
+    .works-section {
+        padding: 5px 15px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .works.era-selected .sub-nav{
+        padding: 0;
+        gap: 40px; 
+        margin-top: 50%;
+    }
+
+    .sub-nav a{
+        margin: 0 5px;
+        padding: 5px;
+        font-size: 1.3rem;
+    }
+
+    .works-section{
+        padding: 5px 15px;
+        height: 95%;
+    }
+
+    /*SERVICIOS*/
+
+    .services{
+        top: 85px ;
+        left: 20px;
+        right: 20px;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+
+    
+    .grid-container{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin: 0;
+        padding: 0;
+        gap: 20px;
+        
+    }
+    .grid-item{
+        height: 65% !important;
+    }
+
+    .grid-item h4{
+        padding: 3px;
+        font-size: smaller;
+    }
+
+    .grid-item .grid-sub-item{
+        height: 30% !important;
+    }
+    .grid-sub-item p{
+        display: none;
+    }
+
+    .services h2{
+        font-size: 0.5rem;
+    }
+
+    .grid-sub-item h5:nth-of-type(2) {
+        display: none;
+    }    
+    /*contacto*/
+    .contact {   
+        top: 40px;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+    }
+    .contact form {
+        width: 75%;
+        justify-content: center;
+    }
+    .contact form .input{
+        gap: 5px;
+        padding: 0;
+    }
+
+    textarea{
+        height: 150px;
+        padding: 10px;
+    }
+    .contact .icons a {
+        font-size: 1rem;
+    }
+
+    .icons .btn{
+        width: 80%;
+        text-align: center;
+        padding: 0;
+    }
+
+    /*whatsapp*/
+    .fixed-whatsapp-button{
+        width: 28px;
+        height: 28px;
+        font-size: 23px;
+        bottom: 80px;
+        right: 20px;
+    }
+
+    /*footer*/
+
+    footer {
+        margin: 0 auto;
+    }
+    
+}

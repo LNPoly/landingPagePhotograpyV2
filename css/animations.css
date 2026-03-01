@@ -1,0 +1,88 @@
+/* Efecto Brillo Scanner (Compartido) */
+header::after, .sub-menu-link.active-link::after {
+    content: ''; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; 
+    background: linear-gradient(90deg, transparent 0%, transparent 40%, #fff 50%, #084d6e 55%, transparent 60%, transparent 100%);
+    background-size: 200% 100%;
+    animation: scanner-light 10s linear infinite;
+    box-shadow: 0 0 10px var(--shadows-color); 
+    z-index: 5;
+}
+
+@keyframes scanner-light {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/*animación del titulo principal*/
+.hero h1{ 
+    font-size: 5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 3px var(--petrol-dark);
+    
+    
+    /* Animación Scanner en Texto */
+    background: linear-gradient(90deg, 
+        var(--petrol-primary) 0%, 
+        var(--petrol-primary) 40%, 
+        var(--petrol-glow) 50%, 
+        var(--petrol-primary) 60%, 
+        var(--petrol-primary) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 1.5s ease-out, scanner 8s linear infinite;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scanner {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+/*-- animacion de section WORKS --*/
+
+/*aparición de cada item*/
+.works-grid .work-item{
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    background-color: var(--petrol-dark);
+    border: 1px solid var(--petrol-medium);
+    border-radius: 8px;
+    overflow: hidden;
+
+    transition: box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.works-grid .work-item:hover{
+    box-shadow: 0 10px 20px var(--shadows-color);
+    border-color: var(--petrol-light);
+    z-index: 10;
+}
+/*delay escalonado para cada item*/
+.works-grid .work-item:nth-child(1) { animation-delay: 0.1s; }
+.works-grid .work-item:nth-child(2) { animation-delay: 0.3s; }
+.works-grid .work-item:nth-child(3) { animation-delay: 0.5s; }
+.works-grid .work-item:nth-child(4) { animation-delay: 0.7s; }
+.works-grid .work-item:nth-child(5) { animation-delay: 0.9s; }
+.works-grid .work-item:nth-child(6) { animation-delay: 1.1s; }
+
+

@@ -1,0 +1,100 @@
+.services {
+    top: 50px;
+    width: 100%;
+    height: 90%;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scrollbar-width: thin; /* Para Firefox */
+    scrollbar-color: var(--petrol-glow) transparent;
+}
+
+/* Estilo del scrollbar */
+#services::-webkit-scrollbar {
+    width: 6px;
+}
+#services::-webkit-scrollbar-thumb {
+    background: var(--blue-gradient);
+    border-radius: 10px;
+}
+.services h2 {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+/* Grilla Principal: 2 columnas en pantallas grandes */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    align-content: center;
+}
+
+/* Items de nivel superior (EVENTOS, EDICION) */
+.grid-item {
+    border: 2px solid #0a9396;
+    border-radius: 12px;
+    padding: 10px;
+
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px var(--shadows-color);
+}
+
+.grid-item h4 {
+    text-align: center;
+    background-color: var(--petrol-primary);
+    color: var(--petrol-dark);
+    margin: -10px -10px 10px -10px;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    font-size: 1rem;
+}
+
+/* Sub-items */
+.grid-sub-item {
+    border-bottom: 1px solid #005f73;
+    padding: 10px 0;
+    margin-bottom: 5px;
+}
+
+.grid-sub-item:last-child {
+    border-bottom: none;
+}
+
+.grid-sub-item h5 {
+    color: var(--petrol-glow);
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+.grid-sub-item p {
+    color: var(--text-main);
+    font-size: 0.95rem;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+/* Estilo para el importe */
+.grid-sub-item h5:nth-of-type(2) {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--petrol-primary);
+    margin-top: 6px;
+    text-transform: uppercase;
+}
+
+.grid-sub-item p:last-child {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+}

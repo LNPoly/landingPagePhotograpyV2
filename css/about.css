@@ -1,0 +1,42 @@
+/*SOBRE MI*/
+
+.about{
+    width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.about-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+    width: 80%;
+}
+.about-content h2{
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--petrol-light);
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--petrol-light);
+}
+.about-content .about-portrait {
+    margin-top: 10px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 5%;
+    border: 3px solid #216477;
+    box-shadow: 0 0 15px var(--shadows-color);
+}
+.about .about-text-content{
+    margin: 0 auto;
+}
+
+.about .about-text{
+    max-width: 95%;
+    text-align: justify;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    margin: 0 auto;
+}
